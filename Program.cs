@@ -6,10 +6,12 @@ public static class TicTacToeGame
     public static int numberOfTurns = 0;
     static void Main()
     {
+        //Instructions
         Console.WriteLine("Welcome to TicTacToe Game\n");
         Console.WriteLine("INSTRUCTIONS:\n");
         Console.WriteLine("1. Player can only play once");
         Console.WriteLine("2. Player can only input values 1-3 only\n\n");
+        //Arguments
 
         while (true)
         {
@@ -35,15 +37,16 @@ public static class TicTacToeGame
                 numberOfTurns++;
                 if (numberOfTurns >= 9)
                 {
-                    Console.WriteLine("Cat's game! Try again.");
+                    Console.WriteLine("Invalid choice! Try again!!");
                     break;
                 }
             }
             Console.WriteLine();
-            Console.WriteLine("Press any key to play again.");
+            Console.WriteLine("Press any key to play again!!");
             Console.ReadKey(true);
         }
     }
+    //Check for winner
     static bool CheckForWinner()
     {
         if (Horizontal() || Vertical() || Diagonal())
@@ -190,6 +193,7 @@ public static class TicTacToeGame
         }
     }
 }
+//Playing board properties
 public class Board
 {
     public Row[] rows;
@@ -204,6 +208,7 @@ public class Board
         for (int i = 0; i < rows.Length; ++i)
             rows[i].DisplayContents();
     }
+    //User input
     public void ChooseRowThenSpace()
     {
         string input = "";
@@ -214,7 +219,7 @@ public class Board
         {
             if (rowNumber > 3 || rowNumber < 1)
             {
-                Console.WriteLine("Invalid row number. Please try again.");
+                Console.WriteLine("Invalid row number. Please try again!!");
                 ChooseRowThenSpace();
                 return;
             }
@@ -222,7 +227,7 @@ public class Board
         }
         else
         {
-            Console.WriteLine("Invalid row number. Try again.");
+            Console.WriteLine("Invalid row number. Try again!!");
             ChooseRowThenSpace();
             return;
         }
@@ -242,13 +247,13 @@ public class Row
         {
             if (spaceNumber > 3 || spaceNumber < 1)
             {
-                Console.WriteLine("Invalid space number. Please try again.");
+                Console.WriteLine("Invalid space number. Please try again!!");
                 ChooseSpace(isX);
                 return;
             }
             if (spaces[spaceNumber - 1] != 0)
             {
-                Console.WriteLine("That space is occupied. Please choose another.");
+                Console.WriteLine("That space is occupied. Please choose another!!");
                 TicTacToeGame.board.ChooseRowThenSpace();
                 return;
             }
@@ -260,10 +265,11 @@ public class Row
         }
         else
         {
-            Console.WriteLine("Invalid space number. Try again.");
+            Console.WriteLine("Invalid space number. Try again!!");
             ChooseSpace(isX);
         }
     }
+    //Display results
 
     public void DisplayContents()
     {
