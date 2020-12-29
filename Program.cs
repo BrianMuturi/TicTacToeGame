@@ -1,11 +1,16 @@
-﻿using System;
-public static class TicTacToe
+using System;
+public static class TicTacToeGame
 {
     public static bool isPlayer1sTurn = true;
     public static Board board;
     public static int numberOfTurns = 0;
     static void Main()
     {
+        Console.WriteLine("Welcome to TicTacToe Game\n");
+        Console.WriteLine("INSTRUCTIONS:\n");
+        Console.WriteLine("1. Player can only play once");
+        Console.WriteLine("2. Player can only input values 1-3 only\n\n");
+
         while (true)
         {
             ResetBoard();
@@ -213,7 +218,7 @@ public class Board
                 ChooseRowThenSpace();
                 return;
             }
-            rows[rowNumber - 1].ChooseSpace(TicTacToe.isPlayer1sTurn);
+            rows[rowNumber - 1].ChooseSpace(TicTacToeGame.isPlayer1sTurn);
         }
         else
         {
@@ -244,7 +249,7 @@ public class Row
             if (spaces[spaceNumber - 1] != 0)
             {
                 Console.WriteLine("That space is occupied. Please choose another.");
-                TicTacToe.board.ChooseRowThenSpace();
+                TicTacToeGame.board.ChooseRowThenSpace();
                 return;
             }
 
@@ -271,8 +276,17 @@ public class Row
                 lineToWrite += "| X |";
             else if (spaces[i] == 2)
                 lineToWrite += "| O |";
+           
         }
 
+        Console.WriteLine(lineToWrite);
+    }
+
+    public Row()
+    {
+        spaces = new int[3];
+    }
+}
         Console.WriteLine(lineToWrite);
     }
 
