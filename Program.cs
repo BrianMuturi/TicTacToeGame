@@ -293,11 +293,5 @@ public class Row
         spaces = new int[3];
     }
 }
-        Console.WriteLine(lineToWrite);
-    }
-
-    public Row()
-    {
-        spaces = new int[3];
-    }
-}
+    
+   
